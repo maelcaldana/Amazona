@@ -6,13 +6,11 @@ Begin Web Test
     Open Browser  about:blank  edge
 
 End Test
-    Sleep  5s
+    Sleep  2s
     Close Browser
 
 The Tests Will Begin
     Log  I am starting the tests...
-
-
 
 The Tests Will End
     Log  I am finishing the tests...

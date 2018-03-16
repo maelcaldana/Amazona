@@ -1,28 +1,29 @@
 *** Settings ***
 Library  Selenium2Library
+Resource  ../Resources/PO/LandingPage.robot
+Resource  ../Resources/PO/TopNav.robot
+Resource  ../Resources/PO/SearchResults.robot
+Resource  ../Resources/PO/Product.robot
+Resource  ../Resources/PO/Cart.robot
+Resource  ../Resources/PO/SignIn.robot
+
 
 *** Keywords ***
 Search For Products
-    Go To  http://www.amazon.com
-    Wait Until Page Contains  Your Amazon.com
-    Input Text  id=twotabsearchtextbox  Ferrari 458
-    Click Button  xpath=//*[@id="nav-search"]/form/div[2]/div/input
-    Wait Until Page Contains  results for "Ferrari 458"
+    LandingPage.Load
+    LandingPage.Verify Page Loaded
+    TopNav.Search for Products
+    SearchResults.Verify Search Completed
 
 Select Product From Search Results
-    Click Link  css=#result_0 a.s-access-detail-page
-    Wait Until Page Contains  Back to search results
+    SearchResults.Click Product link
+    Product.Verify Page Loaded
 
 Add Product To The Cart
-    Click Button  id=add-to-cart-button
-    Wait Until Page Contains  Added to Cart
-    Click Link  css=#hlb-ptc-btn-native
-    Sleep  2s
+    Product.Add to Cart
+    Cart.Verify Product Added
 
 Begin Checkout
-    Page Should Contain Element  //h1[@class='a-spacing-small']
-    Element Should Be Visible  //h1[@class='a-spacing-small']
-    Wait Until Page Contains  Sign in
-    Input Text  id=ap_email  rauldelicia@bol.com
-    Sleep  1s
-    Click Element  id=continue
+    Cart.Proceed to Checkout
+    SignIn.Verify Page Loaded
+    SignIn.Try to Sing In
