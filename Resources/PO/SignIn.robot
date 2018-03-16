@@ -9,7 +9,7 @@ Verify Page Loaded
 
 Try to Sing In
     Wait Until Page Contains  Sign in
-    Input Text  id=ap_email  rauldelicia@bol.com
+    Input Text  id=ap_email  ${USER_NAME}
     Sleep  1s
     Click Element  id=continue
 

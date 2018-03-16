@@ -3,7 +3,7 @@ Library  Selenium2Library
 
 *** Keywords ***
 Begin Web Test
-    Open Browser  about:blank  edge
+    Open Browser  about:blank  ${BROWSER}
 
 End Test
     Sleep  2s
