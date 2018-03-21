@@ -1,12 +1,12 @@
 *** Settings ***
 Library  Selenium2Library
+Documentation  Starts and stops the tests
 
 *** Keywords ***
 Begin Web Test
     Open Browser  about:blank  ${BROWSER}
 
 End Test
-    Sleep  2s
     Close Browser
 
 The Tests Will Begin

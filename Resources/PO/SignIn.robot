@@ -1,16 +1,22 @@
 *** Settings ***
 Library  Selenium2Library
+Documentation  Testing the Sing in page
+Library  Selenium2Library
+
+*** Variables ***
+${SINGIN_MAIN_HEADING}=  //h1[@class='a-spacing-small']
+${CONTINUE_BUTTON} =  id=continue
+
 
 *** Keywords ***
 Verify Page Loaded
-    Page Should Contain Element  //h1[@class='a-spacing-small']
-    Element Should Be Visible  //h1[@class='a-spacing-small'
+    Wait Until Element Is Visible  ${SINGIN_MAIN_HEADING}
+    Element Should Be Visible  ${SINGIN_MAIN_HEADING}
 
 
 Try to Sing In
-    Wait Until Page Contains  Sign in
     Input Text  id=ap_email  ${USER_NAME}
-    Sleep  1s
-    Click Element  id=continue
+    Wait Until Element Is Visible  ${CONTINUE_BUTTON}
+    Click Element  ${CONTINUE_BUTTON}
 
 

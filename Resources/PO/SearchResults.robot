@@ -1,5 +1,10 @@
 *** Settings ***
+Documentation  Testing the search results
 Library  Selenium2Library
+
+
+*** Variables ***
+${FIRST_PRODUCT} =  xpath=//*[@id="result_0"]/div/div/div/div[2]/div[1]/div[1]/a
 
 *** Keywords ***
 Verify Search Completed
@@ -7,5 +12,5 @@ Verify Search Completed
 
 Click Product Link
     [Documentation]  Clicks on the first product in the search results list
-    Sleep  2s
-    Click Link  css=#result_0 a.s-access-detail-page
+    Wait Until Element Is Visible  ${FIRST_PRODUCT}
+    Click Element  ${FIRST_PRODUCT}

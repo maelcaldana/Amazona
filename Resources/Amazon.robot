@@ -1,5 +1,7 @@
 *** Settings ***
 Library  Selenium2Library
+Documentation  This file organize the keywords and create the main Test Cases
+
 Resource  ../Resources/PO/LandingPage.robot
 Resource  ../Resources/PO/TopNav.robot
 Resource  ../Resources/PO/SearchResults.robot

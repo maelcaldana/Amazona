@@ -1,6 +1,6 @@
 *** Settings ***
+Documentation  Testing the site default page
 Library  Selenium2Library
-
 
 *** Keywords ***
 Load
