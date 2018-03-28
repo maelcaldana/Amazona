@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation  This suite tests the behavior of Amazon.com
-Resource  ../Resources/Amazon.robot
+Resource  ../Resources/AmazonApp.robot
 Resource  ../Resources/Common.robot
 
 
@@ -18,19 +18,19 @@ ${USER_NAME} =  username@bol.com
 
 *** Test Cases ***
 Logged out user should be able to search for products
-    Amazon.Search For Products
+    AmazonApp.Search For Products
 
 Logged out user should be able to view a product
-    Amazon.Search For Products
-    Amazon.Select Product From Search Results
+    AmazonApp.Search For Products
+    AmazonApp.Select Product From Search Results
 
 Logged out user should be able to add product do cart
-    Amazon.Search For Products
-    Amazon.Select Product From Search Results
-    Amazon.Add Product To The Cart
+    AmazonApp.Search For Products
+    AmazonApp.Select Product From Search Results
+    AmazonApp.Add Product To The Cart
 
 User must sign in to check out
-    Amazon.Search For Products
-    Amazon.Select Product From Search Results
-    Amazon.Add Product To The Cart
-    Amazon.Begin Checkout
+    AmazonApp.Search For Products
+    AmazonApp.Select Product From Search Results
+    AmazonApp.Add Product To The Cart
+    AmazonApp.Begin Checkout
